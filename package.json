@@ -1,6 +1,6 @@
 {
   "name": "named-regexp-groups",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Regular expressions with named capture groups and named back-references",
   "main": "lib",
   "jsnext:main": "src",

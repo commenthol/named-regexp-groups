@@ -37,13 +37,13 @@ r.source
 // => r.source === '(foo)([^]+)(-)(?:wat)((?:na)+)((?:na)+)'
 ```
 
-For nodejs <= 4.0 `core-js` polyfills are required.
+For nodejs < v5.0 `core-js` polyfills are required.
 Use `npm i -S core-js` in your project and add:
 
 ```js
-// for node <= 0.10
+// for node < v0.11
 require('core-js/es6/object')
-// for node <= 4.0
+// for node < v5.0
 require('core-js/es6/string')
 require('core-js/es6/symbol')
 ```

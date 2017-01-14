@@ -43,7 +43,7 @@ function generate (str, flags) {
         store.names.push('')
         break
       case ')':
-        block = store.groups.pop() || ''
+        block = store.groups.pop()
         name = store.names.pop()
         /* istanbul ignore else */
         if (name) {
@@ -65,13 +65,9 @@ function generate (str, flags) {
             } else {
               groups[store.count++] = index
             }
-            s = ''
-            if (arr[i + 1] === ')') {
-              if (name[2]) {
-                s = name[2]
-              } else {
-                s = '[^]+'
-              }
+            s = name[2] || ''
+            if (arr[i + 1] === ')' && !name[2]) {
+              s = '[^]+'
             }
           } else {
             // is not a cluster, assertion or named capture group

@@ -7,7 +7,7 @@ require('core-js/es6/string')
 require('core-js/es6/symbol')
 
 const assert = require('assert')
-const NamedRegExp = require('..')
+const NamedRegExp = require('../src')
 
 describe('#NamedRegExp', function () {
   it('should create a new instance', function () {

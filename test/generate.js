@@ -66,4 +66,15 @@ describe('#generate', function () {
     assert.deepEqual(groups, {foo: 1, 0: 2})
     assert.deepEqual(named, {foo: 'aaa'})
   })
+
+  it('should choose complete inner group', function () {
+    var str = /(:<foo>[/](?:\d+))/
+    var {source, groups, named, flags} = generate(str)
+    var regex = new RegExp(source, flags)
+    assert.ok(regex instanceof RegExp)
+    assert.equal(source, /([/](?:\d+))/.source)
+    assert.equal(flags, undefined)
+    assert.deepEqual(groups, {foo: 1})
+    assert.deepEqual(named, {foo: /[/](?:\d+)/.source})
+  })
 })

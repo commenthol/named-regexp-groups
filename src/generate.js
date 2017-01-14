@@ -20,8 +20,14 @@ function generate (str, flags) {
   var source = ''
   /* istanbul ignore else */
   if (str instanceof RegExp) {
+    flags = flags || str.flags || ''
+    /* istanbul ignore if */
+    if (!flags) { // No RegExp.flags for node < v6.
+      if (str.ignoreCase) flags += 'i'
+      if (str.multiline) flags += 'm'
+      if (str.global) flags += 'g'
+    }
     str = str.source
-    flags = str.flags
   }
 
   var store = {

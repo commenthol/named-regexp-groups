@@ -57,12 +57,12 @@ describe('#generate', function () {
   })
 
   it('should only choose leftmost named group', function () {
-    var str = /(:<foo>aaa)(:<foo>bbb)/
+    var str = /(:<foo>aaa)(:<foo>bbb)/i
     var {source, groups, named, flags} = generate(str)
     var regex = new RegExp(source, flags)
     assert.ok(regex instanceof RegExp)
     assert.equal(source, '(aaa)(bbb)')
-    assert.equal(flags, undefined)
+    assert.equal(flags, 'i')
     assert.deepEqual(groups, {foo: 1, 0: 2})
     assert.deepEqual(named, {foo: 'aaa'})
   })
@@ -73,7 +73,7 @@ describe('#generate', function () {
     var regex = new RegExp(source, flags)
     assert.ok(regex instanceof RegExp)
     assert.equal(source, /([/](?:\d+))/.source)
-    assert.equal(flags, undefined)
+    assert.equal(flags, '')
     assert.deepEqual(groups, {foo: 1})
     assert.deepEqual(named, {foo: /[/](?:\d+)/.source})
   })

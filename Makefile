@@ -13,6 +13,7 @@ prepublish:
 
 %:
 	n $@
-	npm test
+	# npm test
+	npm run coverage
 
 .PHONY: all prepublish test install

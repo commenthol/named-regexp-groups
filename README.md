@@ -3,6 +3,7 @@
 > Regular expressions with named capture groups and named back-references
 
 [![NPM version](https://badge.fury.io/js/named-regexp-groups.svg)](https://www.npmjs.com/package/named-regexp-groups)
+[![Build Status](https://secure.travis-ci.org/commenthol/named-regexp-groups.svg?branch=master)](https://travis-ci.org/commenthol/named-regexp-groups)
 
 Create a named capture group with `(?<name>.*)` or `(:<name>.*)` when using
 a RegExp. The methods of RegExp are supported excluding compile and toString.
@@ -12,9 +13,10 @@ Use named back-references using `(?&name)` to include already defined named patt
 * [Usage](#usage)
   * [exec](#exec)
   * [test](#test)
-  * [String.replace](#string-replace)
-  * [String.match](#string-match)
-  * [String.split](#string-split)
+  * [String.replace](#stringreplace)
+  * [String.match](#stringmatch)
+  * [String.split](#stringsplit)
+* [ES7](#es7)
 * [License](#license)
 
 ## Installation
@@ -51,7 +53,7 @@ require('core-js/es6/symbol')
 ### exec
 
 ```js
-var r = new NamedRegExp('(?<foo>foo)(?<bar>)(-)(?:wat)(?<na>(?:na)+)(?&na)')
+var r = new NamedRegExp('(?<foo>foo)(?<bar>bar)(-)(?:wat)(?<na>(?:na)+)(?&na)')
 r.exec('nanafoobar-watnana')
 // => [ 'foobar-watnana', 'foo', 'bar', '-', 'na', 'na',
 //  index: 4,
@@ -71,8 +73,8 @@ r.test('nanafoobarwaah')
 
 ### String.replace
 
-If using a string as replacement use `$+{name}` to define the placeholder for the capture group.  
-This follows the Syntax of [PCRE Named backreferences](http://perldoc.perl.org/perlretut.html#Named-backreferences).
+If using a string as replacement use `$+{name}` to define the placeholder for the capture group.
+This follows the Syntax of [PCRE Named backreferences][].
 
 ```js
 var r = new NamedRegExp(/(:<year>\d+)-(:<month>\d+)-(:<day>\d+)/)
@@ -108,8 +110,24 @@ r = new NamedRegExp('(?<foo>foo)')
 // => [ 'nana', 'foo', 'barwaah' ]
 ```
 
+## ES7
+
+The proposed [TC39 proposal-regexp-named-groups](https://github.com/tc39/proposal-regexp-named-groups) is finding it's way into the standard.
+Chrome>=64 already supports named groups. Maybe node>=10 soon as well...
+
+Paste this into Chrome>=64
+
+```js
+r = new RegExp(/(?<foo>foo)(?<bar>bar)(-)(?:wat)(?<na>(?:na)+)/);
+o = r.exec('nanafoobar-watnana')
+//> (5) ["foobar-watnana", "foo", "bar", "-", "na",
+//>  index: 4, input: "nanafoobar-watnana",
+//>  groups: {foo: "foo", bar: "bar", na: "nana"}]
+```
+
 ## License
 
 Software is released under [MIT][license].
 
 [license]: ./LICENSE
+[PCRE Named backreferences]: http://perldoc.perl.org/perlretut.html#Named-backreferences

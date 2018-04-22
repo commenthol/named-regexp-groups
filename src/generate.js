@@ -4,16 +4,13 @@
  */
 
 const R_NAME = /([a-zA-Z_$][a-zA-Z_$0-9]{0,50})/
-const R_NAME_REPLACE = new RegExp(`\\$\\+{${R_NAME.source}}`, 'g')
+export const R_NAME_REPLACE = new RegExp(`\\$\\+{${R_NAME.source}}`, 'g')
 const R_NAMED_BACKREF = new RegExp(`^[?:]&${R_NAME.source}`)
 const R_GROUP = new RegExp(`^[?:]<${R_NAME.source}>([^]*)`)
 const R_GROUPS = /([\\]?[()])/g
 const R_EMPTY_GROUPS = /\(\)/g
 
-exports.R_NAME_REPLACE = R_NAME_REPLACE
-exports.generate = generate
-
-function generate (str, flags) {
+export function generate (str, flags) {
   str = str || ''
   var groups = {}
   var named = {}
@@ -31,9 +28,9 @@ function generate (str, flags) {
   }
 
   var store = {
-    count: 0,     // counter for unnamed matching group
+    count: 0, // counter for unnamed matching group
     groups: [''], // store for named pattern
-    names: []     // store for names of capture groups
+    names: [] // store for names of capture groups
   }
 
   var index = 0
@@ -93,8 +90,8 @@ function generate (str, flags) {
 
     return s
   })
-  .join('')
-  .replace(R_EMPTY_GROUPS, '') // remove any empty groups
+    .join('')
+    .replace(R_EMPTY_GROUPS, '') // remove any empty groups
 
   return {source, flags, groups, named}
 }

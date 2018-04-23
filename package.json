@@ -1,6 +1,6 @@
 {
   "name": "named-regexp-groups",
-  "version": "1.0.3-0",
+  "version": "1.0.3-1",
   "description": "Regular expressions with named capture groups and named back-references",
   "keywords": [
     "backreference",
@@ -28,46 +28,11 @@
     "all": "npm run clean && npm run lint && npm run build && npm test",
     "build": "rollup -c rollup.conf.js",
     "clean": "rimraf dist coverage .nyc_output",
-    "clean:all": "rimraf node_modules && npm run clean",
+    "clean:all": "npm run clean && rimraf node_modules",
     "coverage": "nyc -r text -r html npm test",
     "lint": "eslint '**/*.js'",
     "prepublishOnly": "npm run all",
     "test": "mocha"
-  },
-  "babel": {
-    "env": {
-      "development": {
-        "presets": [
-          "env",
-          "stage-2"
-        ]
-      },
-      "es5": {
-        "presets": [
-          [
-            "env",
-            {
-              "modules": false
-            }
-          ],
-          "stage-2"
-        ]
-      }
-    },
-    "ignore": [
-      "./node_modules",
-      "./lib",
-      "./dist/index.js"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "standard",
-    "plugins": [
-      "standard"
-    ],
-    "rules": {
-      "spaced-comment": 0
-    }
   },
   "dependencies": {},
   "devDependencies": {

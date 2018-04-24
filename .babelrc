@@ -1,0 +1,26 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        "env",
+        "stage-2"
+      ]
+    },
+    "es5": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
+        "stage-2"
+      ]
+    }
+  },
+  "ignore": [
+    "./node_modules",
+    "./lib",
+    "./dist/index.js"
+  ]
+}

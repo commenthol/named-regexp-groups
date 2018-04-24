@@ -1,13 +1,18 @@
 /* global describe, it, before */
 
-// for node <= 0.10
-require('core-js/es6/object')
-// for node <= 4.0
-require('core-js/es6/string')
-require('core-js/es6/symbol')
+const major = process.versions.node.split('.')[0]
+if (major < 5) {
+  // for node <= 0.10
+  require('core-js/es6/object')
+  // for node <= 4.0
+  require('core-js/es6/string')
+  require('core-js/es6/symbol')
+}
 
 const assert = require('assert')
-const NamedRegExp = require('../src')
+const NamedRegExp = process.env.NYC_INSTRUMENTER
+  ? require('../src').default // for coverage tests
+  : require('..')
 
 describe('#NamedRegExp', function () {
   it('should create a new instance', function () {

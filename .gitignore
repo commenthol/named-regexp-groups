@@ -1,8 +1,10 @@
 node_modules/
-.nyc_output/
 coverage/
-doc/
-lib/
+dist/
 tmp/
 *.log
 *.tgz
+.eslintcache
+.nyc_output
+yarn.lock
+.DS_Store

@@ -2,11 +2,11 @@
  * @copyright 2017- Commenthol
  * @license
  */
- /**
-  * @module named-regexp-groups
-  */
+/**
+ * @module named-regexp-groups
+ */
 
-const {generate, R_NAME_REPLACE} = require('./generate')
+import {generate, R_NAME_REPLACE} from './generate'
 
 /**
  * Creates a regular expression with named capture groups
@@ -187,4 +187,3 @@ export default class NamedRegExp {
     return str.search(this.regex)
   }
 }
-module.exports = NamedRegExp

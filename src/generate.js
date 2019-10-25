@@ -93,5 +93,5 @@ export function generate (str, flags) {
     .join('')
     .replace(R_EMPTY_GROUPS, '') // remove any empty groups
 
-  return {source, flags, groups, named}
+  return { source, flags, groups, named }
 }

@@ -6,7 +6,7 @@
  * @module named-regexp-groups
  */
 
-import {generate, R_NAME_REPLACE} from './generate'
+import { generate, R_NAME_REPLACE } from './generate'
 
 /**
  * Creates a regular expression with named capture groups

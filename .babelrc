@@ -2,19 +2,17 @@
   "env": {
     "development": {
       "presets": [
-        "env",
-        "stage-2"
+        "@babel/env"
       ]
     },
     "es5": {
       "presets": [
         [
-          "env",
+          "@babel/env",
           {
             "modules": false
           }
-        ],
-        "stage-2"
+        ]
       ]
     }
   },

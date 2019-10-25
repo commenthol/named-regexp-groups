@@ -1,6 +1,6 @@
 all: install test
 
-test: 4. 6. 8. 9.
+test: 10. 12. 13.
 
 install:
 	npm install

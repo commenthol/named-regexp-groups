@@ -16,14 +16,14 @@
   "bugs": {
     "url": "https://github.com/commenthol/named-regexp-groups/issues"
   },
-  "license": "MIT",
-  "author": "commenthol <commenthol@gmail.com>",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/commenthol/named-regexp-groups.git"
   },
+  "license": "MIT",
+  "author": "commenthol <commenthol@gmail.com>",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "scripts": {
     "all": "npm run clean && npm run lint && npm run build && npm test",
     "build": "rollup -c rollup.conf.js",
@@ -36,25 +36,27 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.26.0",
-    "core-js": "^2.5.5",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^5.1.1",
-    "nyc": "^11.7.1",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.58.1",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-uglify": "^3.0.0",
-    "safe-regex": "^1.1.0"
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "core-js": "^3.3.4",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.25.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-uglify-es": "^0.0.1",
+    "safe-regex": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=6.0"
   },
   "maintainers": [
     "commenthol <commenthol@gmail.com>"

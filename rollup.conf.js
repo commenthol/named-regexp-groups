@@ -1,5 +1,5 @@
 import babel from 'rollup-plugin-babel'
-import uglify from 'rollup-plugin-uglify-es'
+import { terser } from 'rollup-plugin-terser'
 
 process.env.BABEL_ENV = 'es5'
 
@@ -39,7 +39,7 @@ export default [
       babel({
         exclude: 'node_modules/**'
       }),
-      uglify({})
+      terser({})
     ]
   }
 ]

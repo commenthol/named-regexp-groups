@@ -25,7 +25,7 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
-    "all": "npm run clean && npm run lint && npm run build && npm test",
+    "ci": "npm run clean && npm run lint && npm run build && npm test",
     "build": "rollup -c rollup.conf.js",
     "clean": "rimraf dist coverage .nyc_output",
     "clean:all": "npm run clean && rimraf node_modules",

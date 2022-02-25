@@ -3,7 +3,7 @@
 > Regular expressions with named capture groups and named back-references
 
 [![NPM version](https://badge.fury.io/js/named-regexp-groups.svg)](https://www.npmjs.com/package/named-regexp-groups)
-[![Build Status](https://secure.travis-ci.org/commenthol/named-regexp-groups.svg?branch=master)](https://travis-ci.org/commenthol/named-regexp-groups)
+[![Build Status](https://github.com/commenthol/named-regexp-groups/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/commenthol/named-regexp-groups/actions/workflows/ci.yml?query=branch%3Amaster)
 
 Create a named capture group with `(?<name>.*)` or `(:<name>.*)` when using
 a RegExp. The methods of RegExp are supported excluding compile and toString.

@@ -1,6 +1,6 @@
 {
   "name": "named-regexp-groups",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Regular expressions with named capture groups and named back-references",
   "keywords": [
     "backreference",

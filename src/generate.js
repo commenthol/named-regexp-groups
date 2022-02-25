@@ -12,9 +12,9 @@ const R_EMPTY_GROUPS = /\(\)/g
 
 export function generate (str, flags) {
   str = str || ''
-  var groups = {}
-  var named = {}
-  var source = ''
+  const groups = {}
+  const named = {}
+  let source = ''
   /* istanbul ignore else */
   if (str instanceof RegExp) {
     flags = flags || str.flags || ''
@@ -27,18 +27,18 @@ export function generate (str, flags) {
     str = str.source
   }
 
-  var store = {
+  const store = {
     count: 0, // counter for unnamed matching group
     groups: [''], // store for named pattern
     names: [] // store for names of capture groups
   }
 
-  var index = 0
-  var arr = str.split(R_GROUPS)
+  let index = 0
+  const arr = str.split(R_GROUPS)
   source = arr.map((s, i) => {
-    var name
-    var block
-    var isGroup = false
+    let name
+    let block
+    let isGroup = false
 
     switch (s) {
       case '(':

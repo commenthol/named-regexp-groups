@@ -48,7 +48,7 @@ export default class NamedRegExp {
    * // => r.source === '(foo)([^]+)(-)(?:wat)((?:na)+)((?:na)+)'
    */
   constructor (pattern, flags) {
-    var g = generate(pattern, flags)
+    const g = generate(pattern, flags)
     this.regex = new RegExp(g.source, g.flags)
     this.source = this.regex.source
     this.groups = g.groups
@@ -66,7 +66,7 @@ export default class NamedRegExp {
    * //      groups: { '0': 'bar', foo: 'foo' } ]
    */
   exec (str) {
-    var res = this.regex.exec(str)
+    const res = this.regex.exec(str)
     if (res) {
       res.groups = {}
       Object.keys(this.groups).forEach((name) => {
@@ -122,12 +122,12 @@ export default class NamedRegExp {
    * // => 'day: 22, month: 11, year: 2017')
    */
   [Symbol.replace] (str, replacement) {
-    var repl = replacement
+    let repl = replacement
     /* istanbul ignore next */
     switch (typeof repl) {
       case 'string':
         repl = repl.replace(R_NAME_REPLACE, (m, name) => {
-          var idx = this.groups[name]
+          const idx = this.groups[name]
           if (idx === undefined || idx === null) {
             return ''
           }

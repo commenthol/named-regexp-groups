@@ -1,6 +1,6 @@
 all: install test
 
-test: 10. 12. 13.
+test: 14 16 17
 
 install:
 	npm install
@@ -10,7 +10,7 @@ prepublish:
 
 %:
 	n $@
-	npm test
+	pnpm test
 	#npm run coverage
 
 .PHONY: all prepublish test install
